@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import './App.css';
+import { Weather } from './components';
 
 function App() {
-  return <div>App</div>;
+  return (
+    <div>
+      <Weather />
+    </div>
+  );
 }
 
 export default App;
