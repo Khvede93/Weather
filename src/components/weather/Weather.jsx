@@ -61,7 +61,7 @@ export const Weather = () => {
           <div className='date'>
             <span>{getCurrentDate()}</span>
           </div>
-          <div>{weatherData?.main?.temp}</div>
+          <div>{(weatherData?.main?.temp - 273.15).toFixed(2)}°C</div>
           <p className='description'>{weatherData?.weather[0]?.description}</p>
           <div className='weather-info'>
             <div>
