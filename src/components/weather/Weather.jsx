@@ -61,6 +61,22 @@ export const Weather = () => {
           <div className='date'>
             <span>{getCurrentDate()}</span>
           </div>
+          <div>{weatherData?.main?.temp}</div>
+          <p className='description'>{weatherData?.weather[0]?.description}</p>
+          <div className='weather-info'>
+            <div>
+              <div>
+                <p className='wind'>Wind Speed: {weatherData?.wind?.speed}</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p className='humidity'>
+                  Humidity: {weatherData?.main?.humidity}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
