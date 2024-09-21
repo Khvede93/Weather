@@ -10,6 +10,7 @@ export const Search = ({ search, setSearch, handleSearch }) => {
         placeholder='Enter City name ...'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        onClick={() => setSearch('')}
       />
       <button className='search-button' onClick={handleSearch}>
         Search
