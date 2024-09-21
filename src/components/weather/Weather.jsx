@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Search } from '../search-city';
 
 export const Weather = () => {
@@ -7,6 +7,7 @@ export const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   async function fetchWeatherData(param) {
+    setLoading(true);
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=d12cb77f7b328824c97d05f086f85298`
@@ -15,12 +16,23 @@ export const Weather = () => {
         throw new Error('Something went wrong');
       }
       const data = await response.json();
-      console.log(data);
-    } catch (e) {}
+      if (data) {
+        setWeatherData(data);
+      }
+    } catch (e) {
+    } finally {
+      setLoading(false);
+    }
   }
   function handleSearch() {
     fetchWeatherData(search);
   }
+
+  useEffect(() => {
+    fetchWeatherData('kutaisi');
+  }, []);
+  console.log(weatherData);
+
   return (
     <div>
       <Search
@@ -28,6 +40,15 @@ export const Weather = () => {
         setSearch={setSearch}
         handleSearch={handleSearch}
       />
+      {loading ? (
+        <div>Loading Data !!! Please Wait</div>
+      ) : (
+        <div>
+          <div className='city-name'>
+            <h2>{weatherData?.name}</h2>
+          </div>
+        </div>
+      )}
       <div>Weather</div>
     </div>
   );
