@@ -1,6 +1,12 @@
 import React from 'react';
 
 export const Search = ({ search, setSearch, handleSearch }) => {
+  function handleKeyDown(e) {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
   return (
     <div className='search'>
       <input
@@ -11,6 +17,7 @@ export const Search = ({ search, setSearch, handleSearch }) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onClick={() => setSearch('')}
+        onKeyDown={handleKeyDown}
       />
       <button className='search-button' onClick={handleSearch}>
         Search

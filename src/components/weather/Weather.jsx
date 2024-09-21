@@ -40,7 +40,6 @@ export const Weather = () => {
   useEffect(() => {
     fetchWeatherData('kutaisi');
   }, []);
-  console.log(weatherData);
 
   return (
     <div>
