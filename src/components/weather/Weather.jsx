@@ -6,6 +6,15 @@ export const Weather = () => {
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
 
+  function getCurrentDate() {
+    return new Date().toLocaleDateString('en-us', {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  }
+
   async function fetchWeatherData(param) {
     setLoading(true);
     try {
@@ -48,6 +57,9 @@ export const Weather = () => {
             <h2>
               {weatherData?.name}, <span>{weatherData?.sys?.country}</span>
             </h2>
+          </div>
+          <div className='date'>
+            <span>{getCurrentDate()}</span>
           </div>
         </div>
       )}
