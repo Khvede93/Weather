@@ -52,7 +52,7 @@ export const Weather = () => {
       {loading ? (
         <div>Loading Data !!! Please Wait</div>
       ) : (
-        <div>
+        <div className='weather-container'>
           <div className='city-name'>
             <h2>
               {weatherData?.name}, <span>{weatherData?.sys?.country}</span>

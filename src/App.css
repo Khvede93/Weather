@@ -1,4 +1,11 @@
 .app {
+  text-align: center;
+  margin: 50px auto 0;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 20px;
+  background-color: rgb(61, 178, 19);
+  padding: 20px 15px 30px;
 }
 
 .search {
@@ -6,7 +13,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 30px;
   margin-top: 10px;
 }
 
@@ -31,4 +37,17 @@
   font-size: 20px;
   cursor: pointer;
   padding: 13px 15px;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
