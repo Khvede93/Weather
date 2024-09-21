@@ -12,7 +12,7 @@ export const Search = ({ search, setSearch, handleSearch }) => {
         onChange={(e) => setSearch(e.target.value)}
       />
       <button className='search-button' onClick={handleSearch}>
-        Search Weather
+        Search
       </button>
     </div>
   );
